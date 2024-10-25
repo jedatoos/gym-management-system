@@ -36,9 +36,9 @@ jobs:
 
         run: ./gradlew clean
 
-      # - name: Run all tests
+      - name: Run all tests
 
-      #   run: ./gradlew testClasses
+        run: ./gradlew testClasses
 
       - name: Create .jar and install
 
