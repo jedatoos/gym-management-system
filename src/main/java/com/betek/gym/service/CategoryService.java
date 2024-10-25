@@ -1,7 +1,8 @@
 package com.example.Gym.service;
 
-import com.example.Gym.model.Category;
-import com.example.Gym.repository.CategoryRepository;
+
+import com.betek.gym.model.Category;
+import com.betek.gym.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
