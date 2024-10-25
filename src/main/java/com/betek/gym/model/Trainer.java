@@ -1,6 +1,7 @@
-package com.example.Gym.model;
+package com.betek.gym.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Email;
@@ -20,7 +21,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Trainer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "trainer_id") // Nombre de la columna en la base de datos
     private Long trainerId;
 
@@ -53,6 +53,8 @@ public class Trainer {
     private String certifications;
 
     @OneToMany(mappedBy = "trainer")
+    @JsonIgnore //para no repetir impresion en postman ignora el ciclo
+  //  @JsonBackReference //asociacion para no repetir impresion en postman
     private List<Apprentice> apprentices;
 
 }

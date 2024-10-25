@@ -1,7 +1,7 @@
-package com.example.Gym.controller;
+package com.betek.gym.controller;
 
-import com.example.Gym.model.Trainer;
-import com.example.Gym.service.TrainerService;
+import com.betek.gym.model.Trainer;
+import com.betek.gym.service.TrainerService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

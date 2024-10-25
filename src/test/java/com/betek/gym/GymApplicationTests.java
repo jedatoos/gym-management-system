@@ -1,4 +1,4 @@
-package com.example.Gym;
+package com.betek.gym;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

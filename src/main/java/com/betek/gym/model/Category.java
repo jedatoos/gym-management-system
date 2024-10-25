@@ -1,4 +1,4 @@
-package com.example.Gym.model;
+package com.betek.gym.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -25,8 +25,7 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category")
-    private List<Activity> activities;
+
 
 
 }

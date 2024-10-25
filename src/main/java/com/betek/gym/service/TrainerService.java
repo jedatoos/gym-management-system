@@ -1,7 +1,7 @@
-package com.example.Gym.service;
+package com.betek.gym.service;
 
-import com.example.Gym.model.Trainer;
-import com.example.Gym.repository.TrainerRepository;
+import com.betek.gym.repository.TrainerRepository;
+import com.betek.gym.model.Trainer;
 import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,9 @@ public class TrainerService {
     }
 
     public Trainer addTrainer(Trainer trainer) {
-
+        if (trainerRepository.findByTrainerId(trainer.getTrainerId()).isPresent()) {
+            throw new ValidationException("The TrainerId is already registered.");
+        }
         if (trainerRepository.findByEmail(trainer.getEmail()).isPresent()) {
             throw new ValidationException("The email is already registered.");
         }
@@ -45,5 +47,10 @@ public class TrainerService {
         existingTrainer.setCertifications(updatedTrainer.getCertifications());
 
         return trainerRepository.save(existingTrainer);
+    }
+    // Agrega el método que te falta
+    public Trainer getTrainerById(Long id) {
+        return trainerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Trainer not found with id " + id));
     }
 }
