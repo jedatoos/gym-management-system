@@ -48,7 +48,7 @@ public class TrainerService {
 
         return trainerRepository.save(existingTrainer);
     }
-    // Agrega el método que te falta
+    // buscar entrenador por id
     public Trainer getTrainerById(Long id) {
         return trainerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Trainer not found with id " + id));

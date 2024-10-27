@@ -1,4 +1,4 @@
-package com.example.Gym.service;
+package com.betek.gym.service;
 
 
 import com.betek.gym.model.Category;
