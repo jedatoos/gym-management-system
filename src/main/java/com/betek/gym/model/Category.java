@@ -1,5 +1,6 @@
 package com.betek.gym.model;
 
+import com.betek.gym.util.MessageConstants;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -20,8 +21,8 @@ public class Category {
     @Column(name = "category_id")
     private Long categoryId;
 
-    @NotBlank(message = "El nombre de la categoría no puede estar vacío")
-    @Size(max = 50, message = "El nombre de la categoría no puede tener más de 50 caracteres")
+    @NotBlank(message = MessageConstants.CATEGORY_NAME_NOT_BLANK)
+    @Size(max = MessageConstants.CATEGORY_NAME_MAX_LENGTH, message = MessageConstants.CATEGORY_NAME_SIZE_LIMIT)
     @Column(name = "category_name")
     private String categoryName;
 

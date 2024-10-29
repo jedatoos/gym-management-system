@@ -1,6 +1,7 @@
 package com.betek.gym.model;
 
 
+import com.betek.gym.util.MessageConstants;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -20,37 +21,35 @@ public class Apprentice {
 
     private Long apprenticeId;
 
-
-    @NotBlank(message = "El nombre no puede estar vacío")
-    @Column(name = "name", nullable = false) // Columna: name
+    @NotBlank(message = MessageConstants.NAME_NOT_BLANK)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Email(message = "El email debe ser válido")
-    @NotBlank(message = "El email no puede estar vacío")
-    @Column(name = "email", nullable = false, unique = true) // Columna: email
+    @Email(message = MessageConstants.EMAIL_VALID)
+    @NotBlank(message = MessageConstants.EMAIL_NOT_BLANK)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @NotBlank(message = "La contraseña no puede estar vacía")
-    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
-    @Column(name = "password", nullable = false) // Columna: password
+    @NotBlank(message = MessageConstants.PASSWORD_NOT_BLANK)
+    @Size(min = MessageConstants.PASSWORD_MIN_LENGTH, message = MessageConstants.PASSWORD_MIN_SIZE)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @NotBlank(message = "La fecha de nacimiento  no puede estar vacía")
-    @Column(name = "birthdate") // Columna: birthdate
+    @NotBlank(message = MessageConstants.BIRTHDATE_NOT_BLANK)
+    @Column(name = "birthdate")
     private String birthdate;
 
-    @NotBlank(message = "El género  no puede estar vacía")
-    @Column(name = "gender") // Columna: gender
+    @NotBlank(message = MessageConstants.GENDER_NOT_BLANK)
+    @Column(name = "gender")
     private String gender;
 
-    @NotBlank(message = "el objetivo del entrenamiento no puede estar vacío")
-    @Column(name = "training_goal") // Columna: training_goal
+    @NotBlank(message = MessageConstants.TRAINING_GOAL_NOT_BLANK)
+    @Column(name = "training_goal")
     private String trainingGoal;
 
-    @NotBlank(message = "el nivel de condicion fisica  no puede estar vacía")
-    @Column(name = "fitness_level") // Columna: fitness_level
+    @NotBlank(message = MessageConstants.FITNESS_LEVEL_NOT_BLANK)
+    @Column(name = "fitness_level")
     private String fitnessLevel;
-
 
     @ManyToOne
  //   @JsonManagedReference  //asociacion para no repetir impresion en postman

@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-/*
+
 @ExtendWith(MockitoExtension.class)
 class TrainerServiceTest {
     @Mock
@@ -126,4 +126,4 @@ class TrainerServiceTest {
         verify(trainerRepository, times(1)).findById(1L);
         verify(trainerRepository, times(1)).save(existingTrainer);
     }
-}*/
+}

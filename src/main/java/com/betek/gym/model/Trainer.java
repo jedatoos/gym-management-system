@@ -1,6 +1,7 @@
 package com.betek.gym.model;
 
 
+import com.betek.gym.util.MessageConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -23,33 +24,32 @@ public class Trainer {
     @Id
     @Column(name = "trainer_id") // Nombre de la columna en la base de datos
     private Long trainerId;
-
-    @NotBlank(message = "El nombre no puede estar vacío")
-    @Size(max = 50, message = "El nombre no puede tener más de 50 caracteres")
-    @Column(name = "name", nullable = false, length = 50) // Nombre de la columna
+    @NotBlank(message = MessageConstants.NAME_NOT_BLANK)
+    @Size(max = MessageConstants.NAME_MAX_LENGTH, message = MessageConstants.NAME_SIZE_LIMIT)
+    @Column(name = "name", nullable = false, length = MessageConstants.NAME_MAX_LENGTH)
     private String name;
 
-    @Email(message = "El correo electrónico debe ser válido")
-    @NotBlank(message = "El correo electrónico no puede estar vacío")
-    @Column(name = "email", nullable = false, unique = true) // Nombre de la columna
+    @Email(message = MessageConstants.EMAIL_VALID)
+    @NotBlank(message = MessageConstants.EMAIL_NOT_BLANK)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @NotBlank(message = "La contraseña no puede estar vacía")
-    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
-    @Column(name = "password", nullable = false) // Nombre de la columna
+    @NotBlank(message = MessageConstants.PASSWORD_NOT_BLANK)
+    @Size(min = MessageConstants.PASSWORD_MIN_LENGTH, message = MessageConstants.PASSWORD_MIN_SIZE)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @NotBlank(message = "La especialidad no puede estar vacía")
-    @Size(max = 30, message = "La especialidad no puede tener más de 30 caracteres")
-    @Column(name = "specialty", nullable = false, length = 30) // Nombre de la columna
+    @NotBlank(message = MessageConstants.SPECIALTY_NOT_BLANK)
+    @Size(max = MessageConstants.SPECIALTY_MAX_LENGTH, message = MessageConstants.SPECIALTY_SIZE_LIMIT)
+    @Column(name = "specialty", nullable = false, length = MessageConstants.SPECIALTY_MAX_LENGTH)
     private String specialty;
 
-    @Min(value = 0, message = "La experiencia no puede tener valores negativos ")
-    @Column(name = "experience_years") // Nombre de la columna
+    @Min(value = MessageConstants.EXPERIENCE_MIN_YEARS, message = MessageConstants.EXPERIENCE_POSITIVE)
+    @Column(name = "experience_years")
     private int experienceYears;
 
-    @Size(max = 100, message = "Las certificaciones no pueden tener más de 100 caracteres")
-    @Column(name = "certifications", length = 100) // Nombre de la columna
+    @Size(max = MessageConstants.CERTIFICATIONS_MAX_LENGTH, message = MessageConstants.CERTIFICATIONS_SIZE_LIMIT)
+    @Column(name = "certifications", length = MessageConstants.CERTIFICATIONS_MAX_LENGTH)
     private String certifications;
 
     @OneToMany(mappedBy = "trainer")

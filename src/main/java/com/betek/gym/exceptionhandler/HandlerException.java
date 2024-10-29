@@ -47,5 +47,6 @@ public class HandlerException {
         public ResourceNotFoundException(String s) {
         }
     }
+
 }
 

@@ -37,8 +37,6 @@ public class TrainingService {
             throw new TrainerNotFoundException("El entrenador con ID " + trainingDTO.getTrainerId() + " no existe.");
         }
 
-
-
         // Si ambos existen, procede a guardar el entrenamiento en el otro microservicio
         return trainingClient.saveTraining(trainingDTO);
     }
